@@ -7,5 +7,6 @@ namespace BackendCapstone.Controllers
 {
     public class TeachersController
     {
+
     }
 }
