@@ -21,5 +21,13 @@ namespace BackendCapstone.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, displayLocations);
         }
 
+        [HttpGet, Route("{id}")]
+        public HttpResponseMessage SingleLocation(int id)
+        {
+            var locationInfo = new LocationsRepository();
+            var displayLocation = locationInfo.GetSingleLocation(id);
+            return Request.CreateResponse(HttpStatusCode.OK, displayLocation);
+        }
+
     }
 }
