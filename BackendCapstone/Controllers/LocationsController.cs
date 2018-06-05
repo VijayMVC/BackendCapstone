@@ -13,7 +13,7 @@ namespace BackendCapstone.Controllers
     public class LocationsController : ApiController
     {
         [HttpGet, Route("")]
-        public HttpResponseMessage DisplayLocations(LocationModel location)
+        public HttpResponseMessage DisplayLocations()
         {
             var locationInfo = new LocationsRepository();
             var displayLocations = locationInfo.GetLocations();
