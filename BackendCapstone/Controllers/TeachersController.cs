@@ -13,7 +13,7 @@ namespace BackendCapstone.Controllers
     public class TeachersController : ApiController
     {
         [HttpGet, Route("")]
-        public HttpResponseMessage DisplayTeachers(TeacherModel teacher)
+        public HttpResponseMessage DisplayTeachers()
         {
             var teacherInfo = new TeachersRepository();
             var displayTeachers = teacherInfo.GetTeachers();
