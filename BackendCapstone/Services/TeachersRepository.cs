@@ -17,7 +17,11 @@ namespace BackendCapstone.Services
             {
                 db.Open();
 
-                var listOfTeachers = db.Query<TeacherModel>(@"SELECT * from teachers");
+                var listOfTeachers = db.Query<TeacherModel>(@"select t.*,
+                l.locationname as Location,
+                l.roomnumber as RoomNumber
+                from teachers t
+                join locations l on t.locationid = l.locationid");
 
                 return listOfTeachers;
             }

@@ -12,4 +12,8 @@
     getAllTeachers();
 
 
+    $scope.editTeacherInformation = function () {
+        $location.path(`/editTeacher/${id}`)
+    }
+
 }]);

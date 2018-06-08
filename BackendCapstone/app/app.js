@@ -12,6 +12,11 @@ app.config(["$routeProvider", function ($routeProvider) {
             templateUrl: "/app/partials/teachersList.html",
             controller: "TeachersController"
         })
+        .when("/editTeacher/:id",
+        {
+            templateUrl: "/app/partials/editTeacherInfo.html",
+            controller: "EditTeacherInfoController"
+        })
         .when("/locations",
         {
             templateUrl: "/app/partials/locations.html",
