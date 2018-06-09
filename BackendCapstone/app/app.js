@@ -9,8 +9,13 @@ app.config(["$routeProvider", function ($routeProvider) {
         })
         .when("/teachers",
         {
-            templateUrl: "/app/partials/teachers.html",
+            templateUrl: "/app/partials/teachersList.html",
             controller: "TeachersController"
+        })
+        .when("/editTeacher/:id",
+        {
+            templateUrl: "/app/partials/editTeacherInfo.html",
+            controller: "EditTeacherInfoController"
         })
         .when("/locations",
         {

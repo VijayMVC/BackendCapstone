@@ -1,0 +1,26 @@
+﻿<h2>
+    Manage Teachers
+</h2>
+
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Teacher First Name</th>
+                <th scope="col">Teacher Last Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="teacher in teachers">
+                <td>{{teacher.FirstName}}</td>
+                <td>{{teacher.LastName}}</td>
+                <td><button class="btn btn-danger" ng-click="editTeacherInformation(teacher.TeacherId)">Edit Information</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+</div>
