@@ -11,7 +11,6 @@ namespace BackendCapstone.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int LocationId { get; set; }
-        public int RoomNumber { get; set; }
         public bool IsHomeroomTeacher { get; set; }
     }
 }

@@ -13,13 +13,12 @@ namespace BackendCapstone.Services
     {
         public IEnumerable<TeacherModel> GetTeachers()
         {
-            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            using (var db = CreateConnection())
             {
                 db.Open();
 
                 var listOfTeachers = db.Query<TeacherModel>(@"select t.*,
-                l.locationname as Location,
-                l.roomnumber as RoomNumber
+                l.locationname as Location
                 from teachers t
                 join locations l on t.locationid = l.locationid");
 
@@ -29,11 +28,13 @@ namespace BackendCapstone.Services
 
         public TeacherModel GetSingleTeacher(int id)
         {
-            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            using (var db = CreateConnection())
             {
                 db.Open();
 
-                var singleTeacher = db.QueryFirst<TeacherModel>(@"SELECT * from teachers WHERE teacherId = @id", new { id });
+                var singleTeacher = db.QueryFirst<TeacherModel>(@"SELECT * from teachers t 
+                                                                  JOIN locations l on t.locationid = l.locationid
+                                                                  WHERE teacherId = @id", new { id });
 
                 return singleTeacher;
             }
@@ -41,7 +42,7 @@ namespace BackendCapstone.Services
 
         public bool UpdateTeacher(TeacherModel teacher)
         {
-            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            using (var db = CreateConnection())
             {
                 db.Open();
 
@@ -54,6 +55,11 @@ namespace BackendCapstone.Services
 
                 return result == 1;
             }
+        }
+
+        public SqlConnection CreateConnection()
+        {
+            return new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString);
         }
     }
 }

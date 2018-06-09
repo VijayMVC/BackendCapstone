@@ -1,24 +1,18 @@
-﻿app.controller("EditTeacherInfoController", "$scope", "$http", "$location", function ($scope, $http, $location) {
+﻿app.controller("EditTeacherInfoController", ["$scope", "$http", "$location", "$routeParams", function ($scope, $http, $location, $routeParams) {
 
     $scope.updatedTeacher = {};
 
-    var getSingleTeacherInfo = function (teacherId) {
-        return $http.get(`/api/teachers/${teacherId}`);
-    };
+    $http.get(`/api/teachers/${$routeParams.id}`).then(function (result) {
+        $scope.updatedTeacher = result.data;
+    });
+   
 
     var updateTeacherInfo = function (teacher) {
-        return $http.post("api/teachers", JSON.stringify(teacher));
+        return $http.post(`api/teachers/editTeacher/${teacher.TeacherId}`, JSON.stringify(teacher));
     };
 
 
     $scope.Submit = function (teacher) {
-
-        var updatedTeacher = {
-            "firstname": $scope.updatedTeacher.firstname,
-            "lastname": $scope.updatedTeacher.lastname,
-            //"ishomeroomteacher": $scope.updatedTeacher.,
-            "roomnumber": $scope.updatedTeacher.roomnumber
-        };
 
         updateTeacherInfo(teacher).then(function () {
             $location.path("/teachers");
@@ -30,4 +24,4 @@
 
 
 
-});
+}]);

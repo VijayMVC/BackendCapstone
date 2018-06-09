@@ -30,11 +30,12 @@ namespace BackendCapstone.Controllers
             return Request.CreateResponse(System.Net.HttpStatusCode.OK, singleTeacherInfo);
         }
 
-        [HttpPost, Route("editTeacher/:id")]
+        [HttpPost, Route("editTeacher/{id}")]
         public HttpResponseMessage EditSingleTeacher(TeacherModel teacher)
         {
-            var teacherInfo = new TeachersRepository();
-            var editSingleTeacherInfo = teacherInfo.UpdateTeacher(teacher);
+            var teacherRepo = new TeachersRepository();
+            var editSingleTeacherInfo = teacherRepo.UpdateTeacher(teacher);
+            
 
             return Request.CreateResponse(System.Net.HttpStatusCode.OK, editSingleTeacherInfo);
         }
