@@ -2,18 +2,21 @@
 
     $scope.updatedTeacher = {};
 
+    var getSingleTeacherInfo = function (teacherId) {
+        return $http.get(`/api/teachers/${teacherId}`);
+    };
+
     var updateTeacherInfo = function (teacher) {
         return $http.post("api/teachers", JSON.stringify(teacher));
     };
 
 
-    $scope.Submit = function () {
+    $scope.Submit = function (teacher) {
 
         var updatedTeacher = {
             "firstname": $scope.updatedTeacher.firstname,
             "lastname": $scope.updatedTeacher.lastname,
             //"ishomeroomteacher": $scope.updatedTeacher.,
-            "location": $scope.updatedTeacher.location,
             "roomnumber": $scope.updatedTeacher.roomnumber
         };
 

@@ -20,6 +20,23 @@ namespace BackendCapstone.Controllers
 
             return Request.CreateResponse(System.Net.HttpStatusCode.OK, displayTeachers);
         }
-    }
 
+        [HttpGet, Route("{id}")]
+        public HttpResponseMessage DisplaySingleTeacherInfo(int id)
+        {
+            var teacherInfo = new TeachersRepository();
+            var singleTeacherInfo = teacherInfo.GetSingleTeacher(id);
+
+            return Request.CreateResponse(System.Net.HttpStatusCode.OK, singleTeacherInfo);
+        }
+
+        [HttpPost, Route("editTeacher/:id")]
+        public HttpResponseMessage EditSingleTeacher(TeacherModel teacher)
+        {
+            var teacherInfo = new TeachersRepository();
+            var editSingleTeacherInfo = teacherInfo.UpdateTeacher(teacher);
+
+            return Request.CreateResponse(System.Net.HttpStatusCode.OK, editSingleTeacherInfo);
+        }
+    }    
 }

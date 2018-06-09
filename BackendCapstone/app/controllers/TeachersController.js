@@ -2,18 +2,13 @@
 
     console.log("hello");
 
-    var getAllTeachers = function () {
-        $http.get("/api/teachers").then(function (result) {
-            $scope.teachers = result.data;
-            console.log($scope.teachers);
-        });
+    $http.get("/api/teachers").then(function (result) {
+        $scope.teachers = result.data;
+        console.log($scope.teachers);
+    });
+
+    $scope.editTeacherInformation = function (teacherId) {
+        $location.path(`/editTeacher/${teacherId}`);
     };
-
-    getAllTeachers();
-
-
-    $scope.editTeacherInformation = function () {
-        $location.path(`/editTeacher/${id}`)
-    }
 
 }]);
