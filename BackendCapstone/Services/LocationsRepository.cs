@@ -43,7 +43,6 @@ namespace BackendCapstone.Services
 
                 var result = db.Execute(@"UPDATE Locations
                                             SET LocationName = @LocationName
-                                                ,RoomNumber = @RoomNumber
                                                 ,TimeAtLocation = @TimeAtLocation
                                                 WHERE LocationId = @LocationId", location);
 

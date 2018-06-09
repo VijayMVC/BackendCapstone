@@ -2,11 +2,11 @@
     <form>
         <div class="form-group">
             <label for="locationName">Location Name</label>
-            <input type="text" class="form-control" id="locationName" ng-model="" placeholder="Location Name">
+            <input type="text" class="form-control" id="locationName" ng-model="updatedLocation.LocationName" placeholder="Location Name">
         </div>
         <div class="form-group">
             <label for="timeAtLocation">Time At Location</label>
-            <input type="number" class="form-control" id="timeAtLocation" ng-model="" placeholder="Alloted Time for Location">
+            <input type="number" class="form-control" id="timeAtLocation" ng-model="updatedLocation.TimeAtLocation" placeholder="Alloted Time for Location">
         </div>
         <button type="submit" class="btn btn-default" ng-click="Submit(updatedLocation)">Submit</button>
     </form>
