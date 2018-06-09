@@ -1,0 +1,26 @@
+﻿<h2>
+    Manage Locations
+</h2>
+
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Location Name</th>
+                <th scope="col">Alloted Time for Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="location in locations">
+                <td>{{location.LocationName}}</td>
+                <td>{{location.TimeAtLocation}}</td>
+                <td><button class="btn btn-danger" ng-click="editLocation(location.LocationId)">Edit Information</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+</div>
