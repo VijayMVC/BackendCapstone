@@ -1,1 +1,12 @@
-﻿
+﻿<div>
+    <div>
+        <h2>Choose your Homeroom Teacher:</h2>
+    </div>
+    <select >
+        <option value="select">Select One</option>
+        <option ng-repeat="teacher in teachers" value="{{teacher.FirstName}}{{teacher.LastName}}">{{teacher.TeacherName}}: {{teacher.Location}}</option>
+    </select>
+
+
+
+</div>
