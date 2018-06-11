@@ -4,7 +4,7 @@
     </div>
     <select >
         <option value="select">Select One</option>
-        <option ng-repeat="teacher in teachers" value="{{teacher.FirstName}}{{teacher.LastName}}">{{teacher.TeacherName}}: {{teacher.Location}}</option>
+        <option ng-repeat="homeroomTeacher in homeroomTeachers" value="{{homeroomTeacher.FirstName}}{{homeroomTeacher.LastName}}" ng-if="homeroomTeacher.IsHomeroomTeacher">{{homeroomTeacher.TeacherName}}</option>
     </select>
 
 
