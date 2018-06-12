@@ -7,6 +7,11 @@ app.config(["$routeProvider", function ($routeProvider) {
             templateUrl: "/app/partials/index.html",
             controller: "HomeController"
         })
+        .when("teacherview",
+        {
+            templateUrl: "/app/partials/teacherView.html",
+            controller: "TeacherViewController"
+        })
         .when("/teachers",
         {
             templateUrl: "/app/partials/teachersList.html",
@@ -27,9 +32,9 @@ app.config(["$routeProvider", function ($routeProvider) {
             templateUrl: "/app/partials/editLocation.html",
             controller: "EditLocationController"
         })
-        .when("/students",
+        .when("/studentview",
         {
-            templateUrl: "/app/partials/students.html",
-            controller: "StudentsController"
+            templateUrl: "/app/partials/studentView.html",
+            controller: "StudentViewController"
         });
 }]);

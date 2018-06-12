@@ -209,12 +209,16 @@
     <Content Include="app\controllers\EditTeacherInfoController.js" />
     <Content Include="app\controllers\HomeController.js" />
     <Content Include="app\controllers\LocationsController.js" />
+    <Content Include="app\controllers\StudentViewController.js" />
     <Content Include="app\controllers\TeachersController.js" />
+    <Content Include="app\controllers\TeacherViewController.js" />
     <Content Include="app\partials\editLocation.html" />
     <Content Include="app\partials\editTeacherInfo.html" />
     <Content Include="app\partials\index.html" />
     <Content Include="app\partials\locations.html" />
+    <Content Include="app\partials\studentView.html" />
     <Content Include="app\partials\teachersList.html" />
+    <Content Include="app\partials\teacherView.html" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
