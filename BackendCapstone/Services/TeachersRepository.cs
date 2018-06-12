@@ -33,7 +33,10 @@ namespace BackendCapstone.Services
             {
                 db.Open();
 
-                var singleTeacher = db.QueryFirst<TeacherModel>(@"SELECT * from teachers t 
+                var singleTeacher = db.QueryFirst<TeacherModel>(@"SELECT t.*,
+                                                                  t.firstname + ' ' + t.lastname as teachername,
+                                                                  l.locationname as location
+                                                                  FROM teachers t
                                                                   JOIN locations l on t.locationid = l.locationid
                                                                   WHERE teacherId = @id", new { id });
 

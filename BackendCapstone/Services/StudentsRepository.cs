@@ -22,5 +22,21 @@ namespace BackendCapstone.Services
                 return listOfStudents;
             }
         }
+
+        public IEnumerable<StudentModel> GetStudentsForSingleTeacher(int id)
+        {
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+
+                var students = db.Query<StudentModel>(@"SELECT s.*
+                                                        FROM Students s
+                                                        JOIN teachers t
+	                                                        on t.TeacherId = s.HomeroomTeacherId
+                                                        WHERE t.TeacherId = @id", new { id });
+
+                return students;
+            }
+        }
     }
 }
