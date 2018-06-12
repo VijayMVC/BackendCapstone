@@ -1,10 +1,10 @@
 ﻿<div>
-    <div>
+    <div ng-if="!homeroomTeacher.TeacherId">
         <h2>Choose your Homeroom Teacher:</h2>
+        <select ng-change="selectTeacher()" ng-model="homeroomTeacher.TeacherId">
+            <option ng-repeat="homeroomTeacher in homeroomTeachers" value="{{homeroomTeacher.TeacherId}}" ng-if="homeroomTeacher.IsHomeroomTeacher">{{homeroomTeacher.TeacherName}}</option>
+        </select>
     </div>
-    <select ng-change="selectTeacher()" ng-model="homeroomTeacher.TeacherId">
-        <option ng-repeat="homeroomTeacher in homeroomTeachers" value="{{homeroomTeacher.TeacherId}}" ng-if="homeroomTeacher.IsHomeroomTeacher">{{homeroomTeacher.TeacherName}}</option>
-    </select>
     <div ng-show="homeroomTeacher.TeacherId">
         <h2>Welcome to {{homeroomTeacher.TeacherName}}'s Class!</h2>
         <h4>Please click your name to let your teacher know you are here.</h4>

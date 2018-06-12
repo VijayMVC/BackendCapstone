@@ -9,9 +9,7 @@
     });
 
     $scope.selectTeacher = () => {
-        console.log("i selected a teacher");
         $http.get(`/api/teachers/${$scope.homeroomTeacher.TeacherId}`).then(function (result) {
-            console.log(result.data);
             $scope.homeroomTeacher = result.data;
             showStudents();
         });
