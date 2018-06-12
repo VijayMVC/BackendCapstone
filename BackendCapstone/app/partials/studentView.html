@@ -2,11 +2,15 @@
     <div>
         <h2>Choose your Homeroom Teacher:</h2>
     </div>
-    <select >
-        <option value="select">Select One</option>
-        <option ng-repeat="homeroomTeacher in homeroomTeachers" value="{{homeroomTeacher.FirstName}}{{homeroomTeacher.LastName}}" ng-if="homeroomTeacher.IsHomeroomTeacher">{{homeroomTeacher.TeacherName}}</option>
+    <select ng-change="selectTeacher()" ng-model="homeroomTeacher.TeacherId">
+        <option ng-repeat="homeroomTeacher in homeroomTeachers" value="{{homeroomTeacher.TeacherId}}" ng-if="homeroomTeacher.IsHomeroomTeacher" >{{homeroomTeacher.TeacherName}}</option>
     </select>
-
+    <div>
+        <h2>Welcome to {{homeroomTeacher.TeacherName}}'s Class!</h2>
+        <div>
+            <button type="button" class="btn btn-primary" ng-repeat="student in students">{{student.StudentName}}</button>
+        </div>
+    </div>
 
 
 </div>
