@@ -38,5 +38,19 @@ namespace BackendCapstone.Services
                 return students;
             }
         }
+
+        public bool MarkStudentPresent(int id)
+        {
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+
+                var success = db.Execute(@"UPDATE Students
+                                           SET IsAtSchool = 1
+                                           WHERE studentId = @id", new { id });
+
+                return success == 1;
+            }
+        }
     }
 }
