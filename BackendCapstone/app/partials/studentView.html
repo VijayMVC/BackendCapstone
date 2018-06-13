@@ -9,8 +9,25 @@
         <h2>Welcome to {{homeroomTeacher.TeacherName}}'s Class!</h2>
         <h4>Please click your name to let your teacher know you are here.</h4>
         <div>
-            <button type="button" class="btn btn-primary" ng-repeat="student in students">{{student.FirstName}} {{student.LastName}}</button>
+            <button type="button" class="btn btn-primary" ng-repeat="student in students | filter: {IsAtSchool:false}" ng-click="markStudentPresent(student.StudentId)">{{student.FirstName}} {{student.LastName}}</button>
         </div>
+    </div>
+    <div>
+        <h2>Present:</h2>
+        <table style="width:100%">
+            <tr>
+                <th>Student</th>
+                <th></th>
+                <th></th>
+                <th>Checked Out To:</th>
+            </tr>
+            <tr ng-repeat="student in students | filter: {IsAtSchool:true}">
+                <td>{{student.FirstName}} {{student.LastName}}</td>
+                <td><button type="button" class="btn btn-info">Return To Room</button></td>
+                <td><button type="button" class="btn btn-danger">Exit Room</button></td>
+                <td></td>
+            </tr>
+        </table>
     </div>
 
 

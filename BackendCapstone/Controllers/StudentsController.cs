@@ -16,8 +16,8 @@ namespace BackendCapstone.Controllers
         [HttpGet, Route("")]
         public HttpResponseMessage DisplayStudents()
         {
-            var studentInfo = new StudentsRepository();
-            var displayStudents = studentInfo.GetStudents();
+            var studentRepo = new StudentsRepository();
+            var displayStudents = studentRepo.GetStudents();
 
             return Request.CreateResponse(HttpStatusCode.OK, displayStudents);
         }
@@ -25,10 +25,24 @@ namespace BackendCapstone.Controllers
         [HttpGet, Route("{id}")]
         public HttpResponseMessage GetStudentsForSingleTeacher(int id)
         {
-            var studentInfo = new StudentsRepository();
-            var studentsAssignedToSingleTeacher = studentInfo.GetStudentsForSingleTeacher(id);
+            var studentRepo = new StudentsRepository();
+            var studentsAssignedToSingleTeacher = studentRepo.GetStudentsForSingleTeacher(id);
 
             return Request.CreateResponse(HttpStatusCode.OK, studentsAssignedToSingleTeacher);
+        }
+
+        [HttpPut, Route("markpresent/{id}")]
+        public HttpResponseMessage MarkStudentPresent(int id)
+        {
+            var studentRepo = new StudentsRepository();
+            var success = studentRepo.MarkStudentPresent(id);
+
+            if (success)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, success);
+            }
+
+            return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "did not work");
         }
     }
 
