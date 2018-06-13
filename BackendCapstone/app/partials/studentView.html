@@ -24,7 +24,7 @@
             <tr ng-repeat="student in students | filter: {IsAtSchool:true}">
                 <td>{{student.FirstName}} {{student.LastName}}</td>
                 <td><button type="button" class="btn btn-info">Return To Room</button></td>
-                <td><button type="button" class="btn btn-danger">Exit Room</button></td>
+                <td><button type="button" class="btn btn-danger" ng-click="exitRoom()">Exit Room</button></td>
                 <td></td>
             </tr>
         </table>

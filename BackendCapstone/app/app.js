@@ -36,10 +36,5 @@ app.config(["$routeProvider", function ($routeProvider) {
         {
             templateUrl: "/app/partials/studentView.html",
             controller: "StudentViewController"
-        })
-        .when("/newlocation",
-        {
-            templateUrl: "/app/partials/selectNewLocation.html",
-            controller: "StudentViewController"
         });
 }]);

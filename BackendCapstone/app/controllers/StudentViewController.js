@@ -29,4 +29,12 @@
         });
     }
 
+    $scope.exitRoom = () => {
+        $http.get("api/locations").then(function (result) {
+            $scope.locations = result.data;
+            console.log(result.data);
+        })
+
+    }
+
 }]);

@@ -216,6 +216,7 @@
     <Content Include="app\partials\editTeacherInfo.html" />
     <Content Include="app\partials\index.html" />
     <Content Include="app\partials\locations.html" />
+    <Content Include="app\partials\selectNewLocation.html" />
     <Content Include="app\partials\studentView.html" />
     <Content Include="app\partials\teachersList.html" />
     <Content Include="app\partials\teacherView.html" />
