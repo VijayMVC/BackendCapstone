@@ -35,6 +35,5 @@ namespace BackendCapstone.Controllers
             var editSingleLocationInfo = locationRepo.UpdateLocation(location);
             return Request.CreateResponse(HttpStatusCode.OK, editSingleLocationInfo);
         }
-
     }
 }

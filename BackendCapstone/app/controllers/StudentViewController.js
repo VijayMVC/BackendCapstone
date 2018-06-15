@@ -48,12 +48,6 @@
         });
     }
 
-    //var markInHomeroom = () => {
-    //    $http.put(`/api/students/student/inhomeroom/${$scope.student.StudentId}`).then(function (result) {
-    //        $scope.student = result.data;
-    //    })
-    //}
-
     $scope.chooseLocation = (id) => {
         $http.get(`/api/locations/${id}`).then(function (result) {
             $scope.location = result.data;
@@ -61,7 +55,16 @@
         $scope.student.InHomeroom = false;
         $scope.showChooseLocation = false;
         $scope.showMain = true;
+        var currentStudentId = $scope.student.StudentId;
+        getSingleStudent(currentStudentId);
         showStudents();
+        setCheckOutTime(id);
+    }
+
+    var setCheckOutTime = (id) => {
+        $http.post(`/api/studentlocations/exitroom/${id}`).then(function (result) {
+            $scope.studentLocation = result.data;
+        });
     }
 
 
