@@ -25,7 +25,7 @@ namespace BackendCapstone.Services
 
         public IEnumerable<StudentModel> GetStudentsForSingleTeacher(int id)
         {
-            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            using (var db = CreateConnection())
             {
                 db.Open();
 
@@ -41,16 +41,49 @@ namespace BackendCapstone.Services
 
         public bool MarkStudentPresent(int id)
         {
-            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            using (var db = CreateConnection())
             {
                 db.Open();
 
                 var success = db.Execute(@"UPDATE Students
-                                           SET IsAtSchool = 1
+                                           SET IsAtSchool = 1,
+                                           InHomeroom = 1
                                            WHERE studentId = @id", new { id });
 
                 return success == 1;
             }
+        }
+
+        public StudentModel GetSingleStudent(int id)
+        {
+            using (var db = CreateConnection())
+            {
+                db.Open();
+
+                var singleStudent = db.QueryFirst<StudentModel>(@"SELECT * from students
+                                                                  WHERE studentId = @id", new { id });
+
+                return singleStudent;
+            }
+        }
+
+        public StudentModel MarkInHomeroom(int id)
+        {
+            using (var db = CreateConnection())
+            {
+                db.Open();
+
+                var singleStudent = db.QueryFirst<StudentModel>(@"UPDATE Students
+                                                                  SET InHomeroom = 1
+                                                                  WHERE studentId = @id", new { id });
+
+                return singleStudent;
+            }
+        }
+
+        public SqlConnection CreateConnection()
+        {
+            return new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString);
         }
     }
 }
