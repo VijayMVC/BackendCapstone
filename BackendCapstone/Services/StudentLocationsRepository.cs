@@ -18,7 +18,7 @@ namespace BackendCapstone.Services
 
                 var success = db.Execute(@"UPDATE StudentLocations
                                             SET StudentId = @StudentId,
-                                                CheckedOut =@CheckedOut,
+                                                CheckedOut = @CheckedOut,
                                             WHERE LocationId = @id", new { id });
 
                 return success == 1;

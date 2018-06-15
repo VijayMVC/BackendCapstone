@@ -55,17 +55,15 @@
         $scope.student.InHomeroom = false;
         $scope.showChooseLocation = false;
         $scope.showMain = true;
-        var currentStudentId = $scope.student.StudentId;
-        getSingleStudent(currentStudentId);
         showStudents();
-        setCheckOutTime(id);
+        //setCheckOutTime(id);
     }
 
-    var setCheckOutTime = (id) => {
-        $http.post(`/api/studentlocations/exitroom/${id}`).then(function (result) {
-            $scope.studentLocation = result.data;
-        });
-    }
+    //var setCheckOutTime = (id) => {
+    //    $http.post(`/api/studentlocations/exitroom/${id}`).then(function (result) {
+    //        $scope.studentLocation = result.data;
+    //    });
+    //}
 
 
 }]);

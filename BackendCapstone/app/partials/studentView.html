@@ -35,6 +35,6 @@
     <select ng-change="selectLocation()" ng-model="location.LocationId">
         <option ng-repeat="location in locations" value="{{location.LocationId}}">{{location.LocationName}}</option>
     </select>
-    <button type="button" class="btn btn-info" ng-click="chooseLocation(location.LocationId)">Submit</button>
+    <button type="button" class="btn btn-info" ng-click="chooseLocation(student.StudentId)">Submit</button>
 
 </div>
