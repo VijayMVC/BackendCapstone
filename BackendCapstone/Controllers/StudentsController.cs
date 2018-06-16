@@ -63,6 +63,15 @@ namespace BackendCapstone.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, success);
         }
+
+        [HttpPut, Route("student/notinhomeroom/{id}")]
+        public HttpResponseMessage MarkNotInHomeroom(int id)
+        {
+            var studentRepo = new StudentsRepository();
+            var success = studentRepo.MarkNotInHomeroom(id);
+
+            return Request.CreateResponse(HttpStatusCode.OK, success);
+        }
     }
 
     

@@ -24,14 +24,14 @@
             <tr ng-repeat="student in students | filter: {IsAtSchool:true}">
                 <td>{{student.FirstName}} {{student.LastName}}</td>
                 <td><button type="button" class="btn btn-info" ng-disabled="student.InHomeroom">Return To Room</button></td>
-                <td><button type="button" class="btn btn-danger" ng-click="exitRoom(student.StudentId)" ng-disabled="!student.InHomeroom">Exit Room</button></td>
-                <td></td>
+                <td><button type="button" class="btn btn-danger" ng-disabled="!student.InHomeroom" ng-click="exitRoom(student.StudentId)">Exit Room</button></td>
+                <td ng-show="!student.InHomeroom"></td>
             </tr>
         </table>
     </div>
 </div>
 <div ng-show="showChooseLocation">
-    <h2>Please select where you are going.</h2>
+    <h2>{{student.FirstName}} {{student.LastName}}, Please select where you are going.</h2>
     <select ng-change="selectLocation()" ng-model="location.LocationId">
         <option ng-repeat="location in locations" value="{{location.LocationId}}">{{location.LocationName}}</option>
     </select>

@@ -67,17 +67,32 @@ namespace BackendCapstone.Services
             }
         }
 
-        public StudentModel MarkInHomeroom(int id)
+        public bool MarkInHomeroom(int id)
         {
             using (var db = CreateConnection())
             {
                 db.Open();
 
-                var singleStudent = db.QueryFirst<StudentModel>(@"UPDATE Students
-                                                                  SET InHomeroom = 1
-                                                                  WHERE studentId = @id", new { id });
+                var success = db.Execute(@"UPDATE Students
+                                            SET InHomeroom = 1,
+                                                InTransit = 0
+                                            WHERE studentId = @id", new { id });
 
-                return singleStudent;
+                return success == 1; ;
+            }
+        }
+
+        public bool MarkNotInHomeroom(int id)
+        {
+            using (var db = CreateConnection())
+            {
+                db.Open();
+
+                var success = db.Execute(@"UPDATE Students
+                                            SET InHomeroom = 0
+                                            WHERE studentId = @id", new { id });
+
+                return success == 1;
             }
         }
 
