@@ -17,9 +17,9 @@ namespace BackendCapstone.Services
                 db.Open();
 
                 var success = db.Execute(@"INSERT INTO StudentLocations
-                                            (StudentId
-                                           ,LocationId
-                                           ,CheckedOut)
+                                            (StudentId,
+                                            LocationId,
+                                            CheckedOut)
                                      VALUES
                                            (@StudentId
                                            ,@LocationId
@@ -29,6 +29,24 @@ namespace BackendCapstone.Services
             }
 
             
+        }
+
+        public bool SetCheckedInTime(int locationId, int studentId)
+        {
+            using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
+            {
+                db.Open();
+
+                var success = db.Execute(@"UPDATE StudentLocations
+                                           SET StudentId = @studentId,
+                                               LocationId = @locationId,
+                                               CheckedIn = GETDATE()
+                                           WHERE CheckedIn is null", new { locationId, studentId });
+
+                return success == 1;
+            }
+
+
         }
     }
 }

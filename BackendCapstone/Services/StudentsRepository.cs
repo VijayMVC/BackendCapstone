@@ -23,17 +23,39 @@ namespace BackendCapstone.Services
             }
         }
 
-        public IEnumerable<StudentModel> GetStudentsForSingleTeacher(int id)
+        public IEnumerable<StudentInfoDTO> GetStudentsForSingleTeacher(int id)
         {
             using (var db = CreateConnection())
             {
                 db.Open();
 
-                var students = db.Query<StudentModel>(@"SELECT s.*
+                var students = db.Query<StudentInfoDTO>(@"
+                                                        SELECT
+                                                          StudentLocationsId,
+                                                          LocationId,
+                                                          StudentId
+                                                        into #latestCheckOut
+                                                        from StudentLocations
+                                                        where CheckedIn is null
+
+                                                        SELECT
+                                                          s.StudentId,
+                                                          s.HomeroomTeacherId,
+                                                          s.IsAtSchool,
+                                                          s.InTransit,
+                                                          s.FirstName,
+                                                          s.LastName,
+                                                          s.InHomeroom,
+                                                          sl.LocationId,
+                                                          l.LocationName
                                                         FROM Students s
-                                                        JOIN teachers t
+                                                        inner JOIN teachers t
 	                                                        on t.TeacherId = s.HomeroomTeacherId
-                                                        WHERE t.TeacherId = @id", new { id });
+                                                        left join #latestCheckOut as sl
+	                                                        on s.StudentId = sl.StudentId
+                                                        left join Locations l
+	                                                        on sl.LocationId = l.LocationId
+                                                        where s.homeroomteacherid = @id", new { id });
 
                 return students;
             }

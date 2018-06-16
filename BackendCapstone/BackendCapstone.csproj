@@ -196,6 +196,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\LocationModel.cs" />
+    <Compile Include="Models\StudentInfoDTO.cs" />
     <Compile Include="Models\StudentLocationsModel.cs" />
     <Compile Include="Models\StudentModel.cs" />
     <Compile Include="Models\TeacherModel.cs" />

@@ -20,5 +20,14 @@ namespace BackendCapstone.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, success);
         }
 
+        [HttpPost, Route("ReturnToRoom/location/{locationId}/student/{studentId}")]
+        public HttpResponseMessage SetCheckedInTime(int locationId, int studentId)
+        {
+            var studentLocationsRepo = new StudentLocationsRepository();
+            var success = studentLocationsRepo.SetCheckedInTime(locationId, studentId);
+
+            return Request.CreateResponse(HttpStatusCode.OK, success);
+        }
+
     }
 }
