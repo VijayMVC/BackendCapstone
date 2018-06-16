@@ -11,11 +11,11 @@ namespace BackendCapstone.Controllers
     [RoutePrefix("api/studentLocations")]
     public class StudentLocationsController : ApiController
     {
-        [HttpPost, Route("exitRoom/{id}")]
-        public HttpResponseMessage SetCheckedOutTime(int id)
+        [HttpPost, Route("exitRoom/location/{locationId}/student/{studentId}")]
+        public HttpResponseMessage SetCheckedOutTime(int locationId, int studentId)
         {
             var studentLocationsRepo = new StudentLocationsRepository();
-            var success = studentLocationsRepo.SetCheckedOutTime(id);
+            var success = studentLocationsRepo.SetCheckedOutTime(locationId, studentId);
 
             return Request.CreateResponse(HttpStatusCode.OK, success);
         }

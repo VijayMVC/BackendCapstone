@@ -48,22 +48,22 @@
         });
     }
 
-    $scope.chooseLocation = (id) => {
-        $http.get(`/api/locations/${id}`).then(function (result) {
+    $scope.chooseLocation = (locationId, studentId) => {
+        $http.get(`/api/locations/${locationId}`).then(function (result) {
             $scope.location = result.data;
         });
         $scope.student.InHomeroom = false;
         $scope.showChooseLocation = false;
         $scope.showMain = true;
         showStudents();
-        //setCheckOutTime(id);
+        setCheckOutTime(locationId, studentId);
     }
 
-    //var setCheckOutTime = (id) => {
-    //    $http.post(`/api/studentlocations/exitroom/${id}`).then(function (result) {
-    //        $scope.studentLocation = result.data;
-    //    });
-    //}
+    var setCheckOutTime = (locationId, studentId) => {
+        $http.post(`api/studentLocations/exitRoom/location/${locationId}/student/${studentId}`).then(function (result) {
+            $scope.studentLocation = result.data;
+        });
+    }
 
 
 }]);
