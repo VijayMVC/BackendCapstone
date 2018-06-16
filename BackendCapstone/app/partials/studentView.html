@@ -25,7 +25,7 @@
                 <td>{{student.FirstName}} {{student.LastName}}</td>
                 <td><button type="button" class="btn btn-info" ng-disabled="student.InHomeroom" ng-click="returnToRoom(student.LocationId, student.StudentId)">Return To Room</button></td>
                 <td><button type="button" class="btn btn-danger" ng-disabled="!student.InHomeroom" ng-click="exitRoom(student.StudentId)">Exit Room</button></td>
-                <td ng-show="!student.InHomeroom"></td>
+                <td ng-show="!student.InHomeroom">{{student.LocationName}}</td>
             </tr>
         </table>
     </div>
