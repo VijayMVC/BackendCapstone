@@ -44,6 +44,34 @@ namespace BackendCapstone.Controllers
 
             return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "did not work");
         }
+
+        [HttpGet, Route("student/{id}")]
+        public HttpResponseMessage GetSingleStudent(int id)
+        {
+            var studentRepo = new StudentsRepository();
+            var success = studentRepo.GetSingleStudent(id);
+
+            return Request.CreateResponse(HttpStatusCode.OK, success);
+
+        }
+
+        [HttpPut, Route("student/inhomeroom/{id}")]
+        public HttpResponseMessage MarkInHomeroom(int id)
+        {
+            var studentRepo = new StudentsRepository();
+            var success = studentRepo.MarkInHomeroom(id);
+
+            return Request.CreateResponse(HttpStatusCode.OK, success);
+        }
+
+        [HttpPut, Route("student/notinhomeroom/{id}")]
+        public HttpResponseMessage MarkNotInHomeroom(int id)
+        {
+            var studentRepo = new StudentsRepository();
+            var success = studentRepo.MarkNotInHomeroom(id);
+
+            return Request.CreateResponse(HttpStatusCode.OK, success);
+        }
     }
 
     

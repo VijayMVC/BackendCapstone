@@ -37,4 +37,5 @@ app.config(["$routeProvider", function ($routeProvider) {
             templateUrl: "/app/partials/studentView.html",
             controller: "StudentViewController"
         });
+        
 }]);

@@ -12,6 +12,7 @@ namespace BackendCapstone.Models
         public int HomeroomTeacherId { get; set; }
         public bool InTransit { get; set; }
         public bool IsGoneTooLong { get; set; }
+        public bool InHomeroom { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
     }
