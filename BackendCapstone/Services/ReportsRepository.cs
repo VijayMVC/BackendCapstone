@@ -17,15 +17,27 @@ namespace BackendCapstone.Services
             {
                 db.Open();
 
-                var listOfNumberOfStudentsInHomeroom = db.Query<HomeroomReportModel>(@"SELECT l.LocationName, l.LocationId,
-                                                                COUNT(s.StudentId) as NumberOfStudentsInRoom
-                                                                 FROM locations l
-                                                                JOIN teachers t
-                                                                on l.LocationId = t.LocationId
-                                                                JOIN students s
-                                                                on s.HomeroomTeacherId = t.TeacherId
-                                                                WHERE InHomeroom = 1
-                                                                GROUP BY LocationName, l.LocationId");
+                var listOfNumberOfStudentsInHomeroom = db.Query<HomeroomReportModel>(@"
+                                                                                    SELECT l.LocationName, l.LocationId, s.InHomeroom,
+                                                                                    COUNT(s.StudentId) as NumberOfStudentsInRoom
+                                                                                     FROM locations l
+                                                                                    JOIN teachers t
+                                                                                    ON l.LocationId = t.LocationId
+                                                                                    JOIN students s
+                                                                                    ON s.HomeroomTeacherId = t.TeacherId
+                                                                                    WHERE InHomeroom = 1
+                                                                                    GROUP BY LocationName, l.LocationId, s.InHomeroom
+                                                                                    UNION
+                                                                                    SELECT l.LocationName, l.LocationId, s.InHomeroom,
+                                                                                    NumberOfStudentsInRoom = COUNT(s.StudentId) 
+                                                                                    FROM locations l
+                                                                                    JOIN StudentLocations sl
+	                                                                                ON l.LocationId = sl.LocationId
+                                                                                    JOIN students s
+	                                                                                ON sl.StudentId = s.StudentId
+                                                                                    WHERE s.InHomeroom = 0	
+                                                                                    GROUP BY LocationName, l.LocationId, s.InHomeroom
+                                                                                    ORDER BY s.InHomeroom, LocationName");
 
                 return listOfNumberOfStudentsInHomeroom;
             }
