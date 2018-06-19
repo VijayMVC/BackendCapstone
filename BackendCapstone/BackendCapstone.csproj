@@ -222,6 +222,7 @@
     <Content Include="app\partials\studentView.html" />
     <Content Include="app\partials\teachersList.html" />
     <Content Include="app\partials\teacherView.html" />
+    <Content Include="app\Styles\main.css" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -284,7 +285,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Style\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

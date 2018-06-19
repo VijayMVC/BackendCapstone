@@ -22,11 +22,11 @@ namespace BackendCapstone.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, displayStudents);
         }
 
-        [HttpGet, Route("{id}")]
-        public HttpResponseMessage GetStudentsForSingleTeacher(int id)
+        [HttpGet, Route("{teacherId}")]
+        public HttpResponseMessage GetStudentsForSingleTeacher(int teacherId)
         {
             var studentRepo = new StudentsRepository();
-            var studentsAssignedToSingleTeacher = studentRepo.GetStudentsForSingleTeacher(id);
+            var studentsAssignedToSingleTeacher = studentRepo.GetStudentsForSingleTeacher(teacherId);
 
             return Request.CreateResponse(HttpStatusCode.OK, studentsAssignedToSingleTeacher);
         }

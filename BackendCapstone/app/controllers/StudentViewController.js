@@ -21,8 +21,6 @@
     var showStudents = () => {
         $http.get(`api/students/${$scope.homeroomTeacher.TeacherId}`).then(function (result) {
             $scope.students = result.data;
-            console.log(result.data);
-
         });
     };
 
@@ -35,14 +33,13 @@
 
     var markInHomeroom = (id) => {
         $http.put(`/api/students/student/inhomeroom/${id}`).then(function (result) {
-            $scope.student = result.data;
+            showStudents();
         });
 
     }
 
     var markNotInHomeroom = (id) => {
         $http.put(`/api/students/student/notinhomeroom/${id}`).then(function (result) {
-            $scope.student = result.data;
             showStudents();
         });
     }
@@ -50,7 +47,6 @@
     $scope.exitRoom = (id) => {
         $http.get("api/locations").then(function (result) {
             $scope.locations = result.data;
-            
         });
         $scope.showMain = false;
         $scope.showChooseLocation = true;
@@ -69,22 +65,16 @@
         });
         $scope.showChooseLocation = false;
         $scope.showMain = true;
-        //$scope.student.InHomeroom = false;
-        //$scope.student.InTransit = true;
         setCheckOutTime(locationId, studentId);
         markNotInHomeroom(studentId);
     }
 
     var setCheckOutTime = (locationId, studentId) => {
-        $http.post(`api/studentLocations/exitRoom/location/${locationId}/student/${studentId}`).then(function (result) {
-            $scope.studentLocation = result.data;
-        });
+        $http.post(`api/studentLocations/exitRoom/location/${locationId}/student/${studentId}`)
     }
 
     var setCheckInTime = (locationId, studentId) => {
-        $http.post(`api/studentLocations/ReturnToRoom/location/${locationId}/student/${studentId}`).then(function (result) {
-            $scope.studentLocation = result.data;
-        });
+        $http.post(`api/studentLocations/ReturnToRoom/location/${locationId}/student/${studentId}`)
     }
 
     $scope.returnToRoom = (locationId, studentId) => {
