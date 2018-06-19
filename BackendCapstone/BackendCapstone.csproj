@@ -197,8 +197,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\LocationModel.cs" />
-    <Compile Include="Models\HomeroomReportModel.cs" />
-    <Compile Include="Models\LocationReportModel.cs" />
+    <Compile Include="Models\ReportModel.cs" />
     <Compile Include="Models\StudentInfoDTO.cs" />
     <Compile Include="Models\StudentLocationsModel.cs" />
     <Compile Include="Models\StudentModel.cs" />
@@ -216,6 +215,7 @@
     <Content Include="app\controllers\EditTeacherInfoController.js" />
     <Content Include="app\controllers\HomeController.js" />
     <Content Include="app\controllers\LocationsController.js" />
+    <Content Include="app\controllers\ReportsController.js" />
     <Content Include="app\controllers\StudentViewController.js" />
     <Content Include="app\controllers\TeachersController.js" />
     <Content Include="app\controllers\TeacherViewController.js" />
@@ -223,6 +223,7 @@
     <Content Include="app\partials\editTeacherInfo.html" />
     <Content Include="app\partials\index.html" />
     <Content Include="app\partials\locations.html" />
+    <Content Include="app\partials\reports.html" />
     <Content Include="app\partials\studentView.html" />
     <Content Include="app\partials\teachersList.html" />
     <Content Include="app\partials\teacherView.html" />

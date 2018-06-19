@@ -1,0 +1,30 @@
+﻿<div>
+
+    <div>
+        <h2>Number of Students Presently in Homeroom</h2>
+        <table style="width:100%">
+            <tr>
+                <th>Homeroom Teacher</th>
+                <th>Number of Students</th>
+            </tr>
+            <tr ng-repeat="report in reports | filter: {InHomeroom: true}">
+                <td>{{report.LocationName}}</td>
+                <td><!--<a ng-click="viewDetails(report)">-->{{report.NumberOfStudentsInRoom}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <h2>Number of Students Checked Into a Location Other Than Their Homeroom</h2>
+        <table style="width:100%">
+            <tr>
+                <th>Location</th>
+                <th>Number of Students Checked In To Location</th>
+            </tr>
+            <tr ng-repeat="report in reports | filter: {InHomeroom: false}">
+                <td>{{report.LocationName}}</td>
+                <td><!--<a ng-click="viewDetails(report)">-->{{report.NumberOfStudentsInRoom}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

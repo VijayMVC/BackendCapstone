@@ -5,10 +5,11 @@ using System.Web;
 
 namespace BackendCapstone.Models
 {
-    public class LocationReportModel
+    public class ReportModel
     {
-        public int LocationId { get; set; }
         public string LocationName { get; set; }
-        public int NumberOfStudentsInLocation { get; set; }
+        public int LocationId { get; set; }
+        public int NumberOfStudentsInRoom { get; set; }
+        public bool InHomeroom { get; set; }
     }
 }

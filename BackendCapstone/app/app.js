@@ -32,6 +32,11 @@ app.config(["$routeProvider", function ($routeProvider) {
             templateUrl: "/app/partials/editLocation.html",
             controller: "EditLocationController"
         })
+        .when("/reports",
+        {
+            templateUrl: "/app/partials/reports.html",
+            controller: "ReportsController"
+        })
         .when("/studentview",
         {
             templateUrl: "/app/partials/studentView.html",
