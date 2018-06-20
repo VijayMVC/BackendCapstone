@@ -15,20 +15,10 @@ namespace BackendCapstone.Controllers
         public HttpResponseMessage DisplayHomeroomReport()
         {
             var reportsRepo = new ReportsRepository();
-            var homeroomReport = reportsRepo.GetNumberOfStudentsInHomeroom();
+            var homeroomReport = reportsRepo.GetNumberOfStudentsInRoom();
             
 
             return Request.CreateResponse(HttpStatusCode.OK, homeroomReport);
-            //return Request.CreateResponse(HttpStatusCode.OK, locationsReport);
         }
-
-        //[HttpGet, Route("")]
-        //public HttpResponseMessage DisplayLocationReport()
-        //{
-        //    var reportsRepo = new ReportsRepository();
-        //    var locationsReport = reportsRepo.GetNumberOfStudentsAtEachLocation();
-
-        //    return Request.CreateResponse(HttpStatusCode.OK, locationsReport);
-        //}
     }
 }

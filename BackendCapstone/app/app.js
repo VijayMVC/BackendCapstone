@@ -1,4 +1,4 @@
-﻿var app = angular.module("BackendCapstone", ["ngRoute"]);
+﻿var app = angular.module("BackendCapstone", ["ngRoute", "chart.js"]);
 
 app.config(["$routeProvider", function ($routeProvider) {
     $routeProvider

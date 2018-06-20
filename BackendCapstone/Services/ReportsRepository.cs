@@ -11,7 +11,7 @@ namespace BackendCapstone.Services
 {
     public class ReportsRepository
     {
-        public IEnumerable<ReportModel> GetNumberOfStudentsInHomeroom()
+        public IEnumerable<ReportModel> GetNumberOfStudentsInRoom()
         {
             using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
             {
@@ -42,16 +42,5 @@ namespace BackendCapstone.Services
                 return listOfNumberOfStudentsAtEachLocation;
             }
         }
-
-       
-        //public IEnumerable<InTransitReportModel> GetNumberOfStudentsInTransit()
-        //{
-        //    using (var db = new SqlConnection(ConfigurationManager.ConnectionStrings["Main"].ConnectionString))
-        //    {
-        //        db.Open();
-
-        //        var listOfNumberOfStudentsInTransit = db.Query<InTransitReportModel>(@"")
-        //    }
-        //}
     }
 }
