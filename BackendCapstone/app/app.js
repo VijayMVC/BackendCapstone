@@ -1,4 +1,4 @@
-﻿var app = angular.module("BackendCapstone", ["ngRoute"]);
+﻿var app = angular.module("BackendCapstone", ["ngRoute", "chart.js"]);
 
 app.config(["$routeProvider", function ($routeProvider) {
     $routeProvider
@@ -31,6 +31,11 @@ app.config(["$routeProvider", function ($routeProvider) {
         {
             templateUrl: "/app/partials/editLocation.html",
             controller: "EditLocationController"
+        })
+        .when("/reports",
+        {
+            templateUrl: "/app/partials/reports.html",
+            controller: "ReportsController"
         })
         .when("/studentview",
         {

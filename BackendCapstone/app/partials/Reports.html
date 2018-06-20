@@ -1,0 +1,19 @@
+﻿<div>
+    <div>
+        <h2>Percentage of Students Currently In and Out of Their Homeroom</h2>
+        <canvas id="pie" class="chart chart-pie" chart-data="data" chart-labels="labels" chart-options="options"></canvas>
+    </div>
+    <div>
+        <h2>Number of Students Presently in Each Location</h2>
+        <table style="width:80%">
+            <tr>
+                <th>Location</th>
+                <th>Number of Students</th>
+            </tr>
+            <tr ng-repeat="report in reports">
+                <td>{{report.LocationName}}</td>
+                <td>{{report.NumberOfStudentsInRoom}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

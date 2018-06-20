@@ -38,10 +38,9 @@ namespace BackendCapstone.Services
                 db.Open();
 
                 var success = db.Execute(@"UPDATE StudentLocations
-                                           SET StudentId = @studentId,
-                                               LocationId = @locationId,
-                                               CheckedIn = GETDATE()
-                                           WHERE CheckedIn is null", new { locationId, studentId });
+                                           SET CheckedIn = GETDATE()
+                                           WHERE CheckedIn is null
+                                           AND StudentId = @studentId", new { locationId, studentId });
 
                 return success == 1;
             }
