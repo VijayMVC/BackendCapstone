@@ -1,6 +1,8 @@
 ﻿body {
+    background-image: url("Content/images/chalkboard.gif");
     padding-top: 50px;
     padding-bottom: 20px;
+
 }
 
 /* Set padding to keep content from hitting the edges */
