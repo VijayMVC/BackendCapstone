@@ -15,3 +15,83 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+.roleChoice {
+    -webkit-border-radius: 15;
+    -moz-border-radius: 15;
+    border-radius: 15px;
+    color: #ffffff;
+    font-size: 20px;
+    background: #04cddb;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    margin: 5%;
+}
+
+.roleChoice:hover {
+    background: #9067bf;
+    text-decoration: none;
+}
+
+.pageHeader {
+    margin: 8%;
+}
+
+.navbar {
+    background-color: #04cddb;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: ghostwhite;
+    font-size: 20px;
+}
+.navbar-default .navbar-brand {
+    color: ghostwhite;
+    font-size: 30px;
+}
+
+.select {
+    padding: 10px;
+    margin: 3%;
+}
+
+.studentNames {
+    padding: 5px;
+    margin: 1%;
+    font-size: 20px;
+    background: #04cddb;
+}
+
+.studentNames:hover {
+    background: #9067bf;
+    text-decoration: none;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.tableHeading {
+    padding: 10px;
+    margin: 3%;
+}
+
+.submit {
+    background: #04cddb;
+}
+
+.tableInfo {
+    font-size: 25px;
+    padding: 1%;
+    margin: 2%;
+}
+
+.instructions {
+    padding: 5px;
+    margin: 2%;
+}
+
+
+/*font-family: 'Gaegu', cursive;
+font-family: 'Schoolbell', cursive;*/
