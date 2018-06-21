@@ -4,11 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Gaegu|Schoolbell" rel="stylesheet">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body ng-app="BackendCapstone">
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -20,9 +21,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a ng-href="#!/teachers">Manage Teachers</a></li>
-                    <li><a ng-href="#!/locations">Manage Locations</a></li>
-                    <li><a ng-href="#!/reports">Real-Time Reports</a></li>
+                    <li ><a ng-href="#!/teachers">Manage Teachers</a></li>
+                    <li class="menuLinks"><a class="menuLinks" ng-href="#!/locations">Manage Locations</a></li>
+                    <li class="menuLinks"><a ng-href="#!/reports">Real-Time Reports</a></li>
                 </ul>
             </div>
         </div>
@@ -30,9 +31,12 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Account4Me</p>
-        </footer>
+        <div class="footer">
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Account4Me</p>
+            </footer>
+        </div>
+        
     </div>
 
     @Scripts.Render("~/bundles/jquery")

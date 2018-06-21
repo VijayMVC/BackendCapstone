@@ -1,7 +1,10 @@
-﻿<h2>
-    {{message}}
-</h2>
-<div>
-    <div><button ng-click="showTeacherView()">I am a TEACHER</button></div>
-    <div><button ng-click="showStudentView()">I am a STUDENT</button></div>
+﻿
+<div class="chooseRole container">
+    <h2 class="pageHeader text-center">
+        {{message}}
+    </h2>
+    <div class="roles .col-md-6 text-center">
+        <button class="roleChoice" ng-click="showTeacherView()">ADMINISTRATOR</button>
+        <button class="roleChoice" ng-click="showStudentView()">STUDENT</button>
+    </div>
 </div>
