@@ -1,18 +1,18 @@
 ﻿
-<div class="report col-lg-6">
-    <h3>Number of Students Presently in Each Location</h3>
-    <table style="width:80%">
+<div class="report niceFont col-lg-6">
+    <h3 class="reportHeading underline">Number of Students in Each Location</h3>
+    <table class="table-bordered table-striped" style="width:80%">
         <tr>
-            <th class="labels">Location</th>
-            <th class="labels">Number of Students</th>
+            <th class="labels text-center">Location</th>
+            <th class="labels text-center">Number of Students</th>
         </tr>
         <tr ng-repeat="report in reports">
             <td class="reportInfo">{{report.LocationName}}</td>
-            <td class="reportInfo">{{report.NumberOfStudentsInRoom}}</td>
+            <td class="reportInfo text-center">{{report.NumberOfStudentsInRoom}}</td>
         </tr>
     </table>
 </div>
-<div class="pieChart col-lg-6">
-    <h3>Students Currently In and Out of Homeroom</h3>
+<div class="pieChart niceFont col-lg-6">
+    <h3 class="reportHeading underline">Students Currently In and Out of Homeroom</h3>
     <canvas id="pie" class="chart chart-pie" chart-data="data" chart-labels="labels" chart-options="options"></canvas>
 </div>
