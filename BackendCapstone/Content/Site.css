@@ -19,24 +19,30 @@ textarea {
 
 
 .roleChoice {
-    -webkit-border-radius: 15;
-    -moz-border-radius: 15;
-    border-radius: 15px;
+    -webkit-border-radius: 11;
+    -moz-border-radius: 11;
+    border-radius: 11px;
+    text-shadow: 1px 1px 3px #666666;
+    font-family: Arial;
     color: #ffffff;
-    font-size: 20px;
+    font-size: 50px;
     background: #04cddb;
     padding: 10px 20px 10px 20px;
+    border: solid #1bafbd 4px;
     text-decoration: none;
     margin: 5%;
 }
 
 .roleChoice:hover {
-    background: #9067bf;
+    background: #F08080;
     text-decoration: none;
 }
 
 .pageHeader {
-    margin: 8%;
+    margin: 3%;
+    font-size: 150px;
+    font-family: 'Architects Daughter', cursive;
+    color: lightcoral;
 }
 
 .navbar {
@@ -78,6 +84,10 @@ textarea {
     padding: 8px;
 }
 
+.niceFont {
+    font-family: 'Nobile', sans-serif;
+}
+
 .options {
     font-size: 25px;
 }
@@ -98,7 +108,7 @@ textarea {
 
 .tableInfo {
     font-size: 25px;
-    padding: 1%;
+    padding: 2%;
     margin: 2%;
 }
 
@@ -106,6 +116,7 @@ textarea {
     font-size: 50px;
     padding: 5px;
     margin: 2%;
+    color: lightcoral;
 }
 
 .smallInstructions {
@@ -123,13 +134,20 @@ textarea {
     padding: 5px;
 }
 
+.report, .pieChart {
+    padding-top: 50px;
+}
+.reportHeading {
+    padding-bottom: 25px;
+}
+
 .reportPage {
     margin: 20px;
     padding: 10px;
 }
 
 .reportInfo {
-    font-size: 15px;
+    font-size: 20px;
     padding: 4px;
 }
 

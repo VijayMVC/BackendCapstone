@@ -16,10 +16,10 @@
         <h2 class="text-justify underline tableHeading">Students Present:</h2>
         <table class="table-striped" style="width:100%">
             <tr>
-                <th class="underline">Student</th>
+                <th class="underline options">Student</th>
                 <th></th>
                 <th></th>
-                <th class="underline">Checked Out To:</th>
+                <th class="underline options">Checked Out To:</th>
             </tr>
             <tr class="text-justify" ng-repeat="student in students | filter: {IsAtSchool:true}">
                 <td class="tableInfo">{{student.FirstName}} {{student.LastName}}</td>
