@@ -1,20 +1,20 @@
-﻿<div class="container text-center" ng-show="showMain">
+﻿<div class="container text-center kidsFont" ng-show="showMain">
     <div ng-if="!homeroomTeacher.TeacherId">
         <h2 class="instructions">Choose your Homeroom Teacher:</h2>
         <select class="select" ng-change="selectTeacher()" ng-model="homeroomTeacher.TeacherId">
-            <option ng-repeat="homeroomTeacher in homeroomTeachers" value="{{homeroomTeacher.TeacherId}}" ng-if="homeroomTeacher.IsHomeroomTeacher">{{homeroomTeacher.TeacherName}}</option>
+            <option class="options" ng-repeat="homeroomTeacher in homeroomTeachers" value="{{homeroomTeacher.TeacherId}}" ng-if="homeroomTeacher.IsHomeroomTeacher">{{homeroomTeacher.TeacherName}}</option>
         </select>
     </div>
     <div ng-show="homeroomTeacher.TeacherId">
-        <h2 class="text-center">Welcome to {{homeroomTeacher.TeacherName}}'s Class!</h2>
-        <h4 class="text-center instructions">Please click your name to let your teacher know you are here.</h4>
+        <h2 class="text-center instructions">Welcome to {{homeroomTeacher.TeacherName}}'s Class!</h2>
+        <h4 class="text-center smallInstructions">Please click your name to let your teacher know you are here.</h4>
         <div>
             <button type="button" class="btn btn-primary studentNames" ng-repeat="student in students | filter: {IsAtSchool:false}" ng-click="markStudentPresent(student.StudentId)">{{student.FirstName}} {{student.LastName}}</button>
         </div>
     </div>
     <div>
         <h2 class="text-justify underline tableHeading">Students Present:</h2>
-        <table style="width:100%">
+        <table class="table-striped" style="width:100%">
             <tr>
                 <th class="underline">Student</th>
                 <th></th>
@@ -23,18 +23,18 @@
             </tr>
             <tr class="text-justify" ng-repeat="student in students | filter: {IsAtSchool:true}">
                 <td class="tableInfo">{{student.FirstName}} {{student.LastName}}</td>
-                <td><button type="button" class="btn submit" ng-disabled="student.InHomeroom" ng-click="returnToRoom(student.LocationId, student.StudentId)">Return To Room</button></td>
-                <td><button type="button" class="btn btn-danger" ng-disabled="!student.InHomeroom" ng-click="exitRoom(student.StudentId)">Exit Room</button></td>
+                <td><button type="button" class="btn submit kidButton" ng-disabled="student.InHomeroom" ng-click="returnToRoom(student.LocationId, student.StudentId)">Return To Room</button></td>
+                <td><button type="button" class="btn btn-danger kidButton" ng-disabled="!student.InHomeroom" ng-click="exitRoom(student.StudentId)">Exit Room</button></td>
                 <td class="tableInfo" ng-show="!student.InHomeroom">{{student.LocationName}}</td>
             </tr>
         </table>
     </div>
 </div>
-<div ng-show="showChooseLocation">
+<div class="kidsFont" ng-show="showChooseLocation">
     <h2 class="instructions">{{student.FirstName}} {{student.LastName}}, Please select where you are going.</h2>
     <select class="select" ng-change="selectLocation()" ng-model="location.LocationId">
-        <option ng-repeat="location in locations" value="{{location.LocationId}}">{{location.LocationName}}</option>
+        <option class="options" ng-repeat="location in locations" value="{{location.LocationId}}">{{location.LocationName}}</option>
     </select>
-    <button type="button" class="btn submit" ng-click="chooseLocation(location.LocationId, student.StudentId)">Submit</button>
+    <button type="button" class="btn submit kidButton" ng-click="chooseLocation(location.LocationId, student.StudentId)">Submit</button>
 
 </div>

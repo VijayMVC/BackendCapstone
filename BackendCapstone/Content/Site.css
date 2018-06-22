@@ -60,7 +60,7 @@ textarea {
 .studentNames {
     padding: 5px;
     margin: 1%;
-    font-size: 20px;
+    font-size: 30px;
     background: #04cddb;
 }
 
@@ -69,11 +69,25 @@ textarea {
     text-decoration: none;
 }
 
+.kidsFont {
+    font-family: 'Architects Daughter', cursive;
+}
+
+.kidButton {
+    font-size: 20px;
+    padding: 8px;
+}
+
+.options {
+    font-size: 25px;
+}
+
 .underline {
     text-decoration: underline;
 }
 
 .tableHeading {
+    font-size: 30px;
     padding: 10px;
     margin: 3%;
 }
@@ -89,8 +103,13 @@ textarea {
 }
 
 .instructions {
+    font-size: 50px;
     padding: 5px;
     margin: 2%;
+}
+
+.smallInstructions {
+    font-size: 30px;
 }
 
 .forms {
@@ -123,3 +142,6 @@ footer {
     color: white;
     text-align: center;
 }
+
+/*font-family: 'Nobile', sans-serif;
+font-family: 'Architects Daughter', cursive;*/
